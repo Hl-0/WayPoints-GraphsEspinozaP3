@@ -18,7 +18,7 @@ public class WayPoiny : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(this.transform.position, wayPoints[currentWP].transform.position) < 3) 
+        if (Vector3.Distance(this.transform.position, wayPoints[currentWP].transform.position) < 10) 
             currentWP++;
 
         if (currentWP >= wayPoints.Length)
@@ -29,7 +29,7 @@ public class WayPoiny : MonoBehaviour
 
         Quaternion LookatWP = Quaternion.LookRotation(wayPoints[currentWP].transform.position - this.transform.position);
 
-        this.transform.rotation = Quaternion.Slerp(transform.rotation, LookatWP, rotspeed * Time.deltaTime);    
+        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, LookatWP, rotspeed * Time.deltaTime);    
 
         this.transform.Translate(0,0, speed * Time.deltaTime);
     }
