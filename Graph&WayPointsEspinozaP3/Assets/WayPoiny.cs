@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Threading;
 using UnityEngine;
 
 public class WayPoiny : MonoBehaviour
@@ -9,25 +11,42 @@ public class WayPoiny : MonoBehaviour
 
     public float speed = 10.0f;
     public float rotspeed = 10.0f;
+    public float LookAhead = 10.0f;
+
+    GameObject tracker;
+
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
+        tracker = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+        DestroyImmediate(tracker.GetComponent<Collider>());
+        tracker.GetComponent<MeshRenderer>().enabled = false;
 
-    // Update is called once per frame
-    void Update()
+        tracker.transform.position = this.transform.position;
+        tracker.transform.rotation = this.transform.rotation;
+    }
+    void ProgressTracker()
     {
-        if (Vector3.Distance(this.transform.position, wayPoints[currentWP].transform.position) < 10) 
+
+        if (Vector3.Distance(tracker.transform.position, this.transform.position) > LookAhead) return;
+
+        if (Vector3.Distance(tracker.transform.position, wayPoints[currentWP].transform.position) < 3)
             currentWP++;
 
         if (currentWP >= wayPoints.Length)
             currentWP = 0;
 
-        //this.transform.LookAt(wayPoints[currentWP].transform.position);
+        tracker.transform.LookAt(wayPoints[currentWP].transform);
+        tracker.transform.Translate(0, 0, (speed + 20)* Time.deltaTime);
+    }
 
+    // Update is called once per frame
+    void Update()
+    {
+        ProgressTracker();
 
-        Quaternion LookatWP = Quaternion.LookRotation(wayPoints[currentWP].transform.position - this.transform.position);
+ 
+        Quaternion LookatWP = Quaternion.LookRotation(tracker.transform.position - this.transform.position);
 
         this.transform.rotation = Quaternion.Slerp(this.transform.rotation, LookatWP, rotspeed * Time.deltaTime);    
 
