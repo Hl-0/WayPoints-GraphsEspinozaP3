@@ -20,8 +20,8 @@ public class FollowWP : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        wps = WPManager.GetComponent<WayPoibterManager>().waypoints;
-        g = WPManager.GetComponent<WaypointManager>().graphs;
+        wps = WPManager.GetComponent<WPManger>().waypoints;
+        g = WPManager.GetComponent<WPManger>().graphs;
         currentNode = wps[0];
 
         Invoke("GoToRuin", 2);
@@ -60,7 +60,7 @@ public class FollowWP : MonoBehaviour
             Vector3 lookAtGoal = new Vector3(goal.position.x,this.transform.position.y,goal.position.z);
 
             Vector3 direction = lookAtGoal - this.transform.position;
-            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Time.deltaTime * rotSpeed);
+            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * rotSpeed);
 
             this.transform.Translate(0, 0, speed * Time.deltaTime);
         }
