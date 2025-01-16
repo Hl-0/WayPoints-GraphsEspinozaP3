@@ -2849,6 +2849,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0775d3e8844a1d642bf53ae9e017a241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WPManager: {fileID: 147044749}
+--- !u!114 &1761980789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761980784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dd76920166b41948af0deaa253ba02c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 192538888}
+  - {fileID: 1113393834}
+  - {fileID: 1144639655}
+  - {fileID: 1654311078}
+  - {fileID: 78815037}
+  - {fileID: 703613386}
+  - {fileID: 1116159228}
+  - {fileID: 168978587}
+  - {fileID: 1133123036}
+  - {fileID: 895424198}
+  - {fileID: 469203786}
+  - {fileID: 485254317}
+  - {fileID: 1381004973}
+  - {fileID: 650741119}
+  - {fileID: 1718217377}
+  - {fileID: 1362497609}
+  - {fileID: 1903562293}
+  - {fileID: 2105340841}
+  - {fileID: 1535160946}
+  - {fileID: 1437879597}
+  - {fileID: 1263741277}
+  - {fileID: 261402105}
+  - {fileID: 377305492}
+  - {fileID: 1925935259}
+  - {fileID: 1117124541}
+  - {fileID: 1353296537}
+  - {fileID: 35587293}
+  - {fileID: 1826003057}
+  - {fileID: 361248917}
+  - {fileID: 1402925189}
+  - {fileID: 1265749557}
+  - {fileID: 502873362}
+  - {fileID: 1513360189}
+  - {fileID: 458268667}
+  - {fileID: 844519808}
+  - {fileID: 530383760}
+  - {fileID: 2089294716}
+  - {fileID: 1491331888}
+  - {fileID: 2084061827}
+  - {fileID: 2802504}
+  - {fileID: 1383106844}
+  - {fileID: 1606538691}
+  links:
+  - node1: {fileID: 1606538691}
+    node2: {fileID: 844519808}
+    dir: 1
+  - node1: {fileID: 458268667}
+    node2: {fileID: 1925935259}
+    dir: 1
+  - node1: {fileID: 377305492}
+    node2: {fileID: 650741119}
+    dir: 1
+  - node1: {fileID: 1381004973}
+    node2: {fileID: 192538888}
+    dir: 1
 --- !u!1001 &1786809368
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -44,7 +44,7 @@ public class FollowWP : MonoBehaviour
         currentWP = 0;
     }
     // Update is called once per frame
-    void LateUpdate()
+    public void LateUpdate()
     {
         if(g.pathList.Count ==0 || currentWP == g.pathList.Count)
             return;
